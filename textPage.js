@@ -18,15 +18,15 @@ class TextItem extends Component {
   }
   render() {
     let text = this.props.text;
-    text = text.replace(/<p>/g, "");
-    text = text.replace(/<\/p>/g, "");
+    text = text.replace(/<br>/g, "");
+    text = text.replace(/<br \/>/g, "");
     return (
       <View style={styles.Item}>
         <View style={styles.ItemTop}>
           <Text style={styles.Title}>{this.props.title}</Text>
           <Text style={styles.Title}>{this.props.ct.slice(5, 16)}</Text>
         </View>
-        <Text style={styles.Text}>{text}</Text>
+        <Text style={styles.Text} selectable={true}>{text}</Text>
       </View>
     )
   }

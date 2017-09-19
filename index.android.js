@@ -5,12 +5,13 @@ import {
   Text,
   TouchableHighlight,
   View,
-  BackAndroid,
+  BackHandler,
   ToastAndroid,
   StyleSheet,
 } from 'react-native';
 import TextPage from './textPage.js';
 import ImagePage from './imagePage.js';
+import FaifudaoPage from './laifudaoPage.js';
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 
 class App extends Component {
@@ -22,11 +23,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    BackAndroid.addEventListener('hardwareBackPress', this.handleBack);
+    BackHandler.addEventListener('hardwareBackPress', this.handleBack);
   }
 
   componentWillUnmount() {
-    BackAndroid.removeEventListener('hardwareBackPress', this.handleBack);
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBack);
   }
 
   _handleBack() {
@@ -47,12 +48,13 @@ class App extends Component {
   render() {
     return (
       <ScrollableTabView>
-        <TextPage tabLabel="笑话" />
+        <TextPage tabLabel="笑话大全" />
+        <FaifudaoPage tabLabel="来福岛笑话" />
         <ImagePage tabLabel="趣图" url="http://route.showapi.com/341-2" />
-        <ImagePage tabLabel="动态图" url="http://route.showapi.com/341-3" />
+        {/* <ImagePage tabLabel="动态图" url="http://route.showapi.com/341-3" /> */}
       </ScrollableTabView>
       );
     }
 }
 
-AppRegistry.registerComponent('joke', () => App);
+AppRegistry.registerComponent('rnjoke', () => App);
