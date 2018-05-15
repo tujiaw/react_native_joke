@@ -9,7 +9,7 @@ function curDate() {
     return leftPad(date.getFullYear(), 4) +
           leftPad(date.getMonth() + 1, 2) +
           leftPad(date.getDate(), 2) +
-          leftPad(date.getHours(), 2) +
+          leftPad(date.getHours() + 8, 2) +
           leftPad(date.getMinutes(), 2) +
           leftPad(date.getSeconds(), 2);
 }
