@@ -9,7 +9,7 @@ function curDate() {
     return leftPad(date.getFullYear(), 4) +
           leftPad(date.getMonth() + 1, 2) +
           leftPad(date.getDate(), 2) +
-          leftPad(date.getHours() + 8, 2) +
+          leftPad(date.getHours(), 2) +
           leftPad(date.getMinutes(), 2) +
           leftPad(date.getSeconds(), 2);
 }
@@ -44,6 +44,7 @@ export function request(mainUrl, appId, appParams, callback) {
         url = url + value + '=' + params[value] + '&';
     });
     url = url + 'showapi_sign=' + sign;
+    console.log(url)
     fetch(url)
     .then((response) => response.json())
     .then((json) => {
